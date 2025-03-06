@@ -12,3 +12,8 @@ add_executable(GraphRenderer src/main.cpp)
 
 # Link raylib to the project
 target_link_libraries(GraphRenderer raylib)
+
+# Set the output directory for the executable to the "bin" folder
+set_target_properties(GraphRenderer PROPERTIES
+    RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin
+)

@@ -1,19 +1,21 @@
 #include <raylib.h>
 
 int main() {
-    const int screenWidth = 800;
-    const int screenHeight = 600;
-    InitWindow(screenWidth, screenHeight, "Graph Renderer");
+  const int screenWidth = 800;
+  const int screenHeight = 600;
 
-    while (!WindowShouldClose()) {
+  SetConfigFlags(FLAG_WINDOW_RESIZABLE);
+  InitWindow(screenWidth, screenHeight, "Graph Renderer");
 
-        BeginDrawing();
-        ClearBackground(GRAY);
+  while (!WindowShouldClose()) {
 
-        EndDrawing();
-    }
+    BeginDrawing();
+    ClearBackground(GRAY);
 
-    CloseWindow();
+    EndDrawing();
+  }
 
-    return 0;
+  CloseWindow();
+
+  return 0;
 }

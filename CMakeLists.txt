@@ -1,16 +1,14 @@
-# Specify the minimum required version of CMake
 cmake_minimum_required(VERSION 3.10)
+project(GraphRenderer)
 
-# Define the project name and the programming language used
-project(MyProject LANGUAGES CXX)
+# Set C++ standard
+set(CMAKE_CXX_STANDARD 11)
 
-# Set the C++ standard to use
-set(CMAKE_CXX_STANDARD 17)
+# Specify raylib location (from submodule)
+add_subdirectory(external/raylib)
 
-# Add an executable target with the specified source files
-add_executable(MyExecutable main.cpp)
+# Add source files
+add_executable(GraphRenderer src/main.cpp)
 
-# Optionally, specify the output directory for executables
-set_target_properties(MyExecutable PROPERTIES
-    RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin
-)
+# Link raylib to the project
+target_link_libraries(GraphRenderer raylib)

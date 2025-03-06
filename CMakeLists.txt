@@ -8,10 +8,14 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 # Specify raylib location (from submodule)
 add_subdirectory(external/raylib)
 
+# Add raygui location (adjust the path as needed)
+include_directories(external/raygui/src)
+include_directories(external/raygui/styles/cyber)
+
 # Add source files
 add_executable(GraphRenderer src/main.cpp)
 
-# Link raylib to the project
+# Link raylib and raygui to the project
 target_link_libraries(GraphRenderer raylib)
 
 # Set the output directory for the executable to the "bin" folder

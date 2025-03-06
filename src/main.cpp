@@ -1,7 +1,19 @@
-#include <iostream>
-using namespace std;
+#include <raylib.h>
 
 int main() {
-    cout << "Hello World";
+    const int screenWidth = 800;
+    const int screenHeight = 600;
+    InitWindow(screenWidth, screenHeight, "Graph Renderer");
+
+    while (!WindowShouldClose()) {
+
+        BeginDrawing();
+        ClearBackground(GRAY);
+
+        EndDrawing();
+    }
+
+    CloseWindow();
+
     return 0;
 }

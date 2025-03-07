@@ -15,6 +15,7 @@ struct Box {
   int row, col;
   int x, y;
   int size;
+  Color color;
   int density;
 };
 
@@ -51,6 +52,7 @@ int main() {
         grid[row][col].x = col * boxSize;
         grid[row][col].y = row * boxSize;
         grid[row][col].size = boxSize;
+        grid[row][col].color = RED;
         grid[row][col].density = 0;
       }
     }
@@ -71,13 +73,27 @@ int main() {
       for (int col = 0; col < boxSegments; col++) {
         Box b = grid[row][col];
 
-        DrawRectangle(b.x, b.y, b.size, b.size, RED);
+        DrawRectangle(b.x, b.y, b.size, b.size, b.color);
         DrawRectangleLines(b.x, b.y, b.size, b.size, BLACK);
       }
     }
 
     for (int i = 0; i < balls; i++) {
       DrawCircleV(ball[i].position, 5, BLUE);
+    }
+
+    for (int i = 0; i < balls; i++) {
+      for (int row = 0; row < boxSegments; row++) {
+        for (int col = 0; col < boxSegments; col++) {
+          Box b = grid[row][col];
+          Rectangle box = {(float)b.x, (float)b.y, (float)b.size,
+                           (float)b.size};
+
+          if (CheckCollisionPointRec(ball[i].position, box)) {
+            grid[row][col].color = PINK;
+          }
+        }
+      }
     }
 
     EndDrawing();

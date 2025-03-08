@@ -18,7 +18,7 @@ int main() {
   Shader shader = LoadShader(0, TextFormat("src/shaders/test.fragment", 330));
 
   // Loading points
-  const int pointsCount = 208;
+  const int pointsCount = 202;
   Point point[pointsCount];
   InitRandomPoints(point, pointsCount);
 

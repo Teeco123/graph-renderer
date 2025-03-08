@@ -13,8 +13,11 @@ int main() {
   Ball ball[balls];
   float column = 10;
   float row = 10;
+
   for (int i = 0; i < balls; i++) {
-    ball[i].position = {row, column};
+    float randColumn = rand() % 800;
+    float randRow = rand() % 800;
+    ball[i].position = {randRow, randColumn};
     ball[i].velocity = {50, 0};
     ball[i].bouncines = 0.5;
     ball[i].weight = 5;

@@ -17,6 +17,8 @@ int main() {
   int pointsCount = 202;
   float pointsCountFloat = 202;
   float radius = 80; // Influence radius
+  bool displayPoints = true;
+  bool displaySPH = true;
 
   //------------------------------------------------------------------------------------
   // Raylib settings
@@ -50,15 +52,22 @@ int main() {
 
     //------------------------------------------------------------------------------------
     // Main simulation window
-    BeginShaderMode(shader);
-    DrawRectangle(0, 0, 800, 800, WHITE);
-    EndShaderMode();
+
+    if (displaySPH) {
+      BeginShaderMode(shader);
+      DrawRectangle(0, 0, 800, 800, WHITE);
+      EndShaderMode();
+    } else {
+      DrawRectangle(0, 0, 800, 800, BLACK);
+    }
+
+    if (displayPoints) {
+      for (int i = 0; i < pointsCount; i++) {
+        DrawCircleV(point[i].position, 5, WHITE);
+      }
+    }
 
     DrawRectangleLines(0, 0, 800, 800, BLACK);
-
-    for (int i = 0; i < pointsCount; i++) {
-      DrawCircleV(point[i].position, 5, WHITE);
-    }
 
     //------------------------------------------------------------------------------------
     // Settings window
@@ -71,6 +80,12 @@ int main() {
     GuiSlider((Rectangle){802, 45, 250, 20}, NULL,
               TextFormat("Points count: %0.2f", pointsCountFloat),
               &pointsCountFloat, 0, 202);
+
+    GuiCheckBox((Rectangle){802, 65, 20, 20}, TextFormat("Toggle points"),
+                &displayPoints);
+
+    GuiCheckBox((Rectangle){802, 85, 20, 20}, TextFormat("Toggle SPH"),
+                &displaySPH);
 
     EndDrawing();
   }

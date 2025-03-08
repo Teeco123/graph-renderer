@@ -1,9 +1,11 @@
-#include "raylib.h"
-#include <iostream>
 #define RAYGUI_IMPLEMENTATION
 #include "raygui.h"
+#include "raylib.h"
 #include "style_cyber.h"
+
 #include "utils.h"
+
+#include <iostream>
 
 int main() {
   const int screenHeight = 810;

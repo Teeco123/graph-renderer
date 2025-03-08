@@ -6,7 +6,8 @@
 #include "utils.h"
 
 int main() {
-  const int screenSize = 800;
+  const int screenHeight = 810;
+  const int screenWidth = 1000;
   const float gravity = 9.81 * 5;
   const int balls = 208;
 
@@ -31,7 +32,7 @@ int main() {
   }
 
   SetConfigFlags(FLAG_WINDOW_RESIZABLE);
-  InitWindow(screenSize, screenSize, "Graph Renderer");
+  InitWindow(screenWidth, screenHeight, "Graph Renderer");
   SetTargetFPS(120);
   GuiLoadStyleCyber();
 
@@ -46,6 +47,8 @@ int main() {
 
     BeginDrawing();
     ClearBackground(GRAY);
+
+    DrawRectangleLines(0, 0, 800, 800, BLACK);
 
     DrawCircleV(vector, radius, RED);
 

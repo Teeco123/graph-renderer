@@ -2,14 +2,7 @@
 #define RAYGUI_IMPLEMENTATION
 #include "raygui.h"
 #include "style_cyber.h"
-
-struct Ball {
-  Vector2 position;
-  Vector2 velocity;
-  float bouncines;
-  float weight;
-  float normalForce;
-};
+#include "utils.h"
 
 int main() {
   const int screenSize = 800;
@@ -38,10 +31,17 @@ int main() {
   SetTargetFPS(120);
   GuiLoadStyleCyber();
 
+  Vector2 vector = {50, 50};
+  float radius = 20;
+
+  CalculateDensity(vector, ball, radius);
+
   while (!WindowShouldClose()) {
 
     BeginDrawing();
     ClearBackground(GRAY);
+
+    DrawCircleV(vector, radius, RED);
 
     for (int i = 0; i < balls; i++) {
       DrawCircleV(ball[i].position, 5, BLUE);

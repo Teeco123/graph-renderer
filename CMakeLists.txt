@@ -11,6 +11,7 @@ add_subdirectory(external/raylib)
 # Add raygui location (adjust the path as needed)
 include_directories(external/raygui/src)
 include_directories(external/raygui/styles/cyber)
+include_directories(src)
 
 # Add source files
 add_executable(GraphRenderer src/main.cpp)

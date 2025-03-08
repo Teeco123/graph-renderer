@@ -29,8 +29,8 @@ float CalculateDensity(Vector2 samplePoint, Point point[], float radius) {
 
 void InitRandomPoints(Point point[], int count) {
   for (int i = 0; i < count; i++) {
-    float randColumn = rand() % 800;
-    float randRow = rand() % 800;
+    float randColumn = GetRandomValue(0, 800);
+    float randRow = GetRandomValue(0, 800);
     point[i].position = {randRow, randColumn};
   }
 }

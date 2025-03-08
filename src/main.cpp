@@ -22,7 +22,7 @@ int main() {
   Point point[pointsCount];
   InitRandomPoints(point, pointsCount);
 
-  float radius = 100; // Influence radius
+  float radius = 80; // Influence radius
 
   int pointsLoc = GetShaderLocation(shader, "points");
   int numPointsLoc = GetShaderLocation(shader, "numPoints");
@@ -46,7 +46,7 @@ int main() {
     DrawRectangleLines(0, 0, 800, 800, BLACK);
 
     for (int i = 0; i < pointsCount; i++) {
-      DrawCircleV(point[i].position, 5, BLUE);
+      DrawCircleV(point[i].position, 5, WHITE);
     }
 
     EndDrawing();

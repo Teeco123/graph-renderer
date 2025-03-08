@@ -9,11 +9,15 @@ int main() {
   const int screenHeight = 810;
   const int screenWidth = 1000;
 
+  // All raylib settings
   SetConfigFlags(FLAG_WINDOW_RESIZABLE);
   InitWindow(screenWidth, screenHeight, "Graph Renderer");
   SetTargetFPS(120);
   GuiLoadStyleCyber();
 
+  Shader shader = LoadShader(0, TextFormat("src/shaders/test.fragment", 330));
+
+  // Loading points
   const int pointsCount = 208;
   Point point[pointsCount];
   InitRandomPoints(point, pointsCount);

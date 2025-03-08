@@ -1,4 +1,5 @@
 #include "raylib.h"
+#include <iostream>
 #define RAYGUI_IMPLEMENTATION
 #include "raygui.h"
 #include "style_cyber.h"
@@ -31,10 +32,12 @@ int main() {
   SetTargetFPS(120);
   GuiLoadStyleCyber();
 
-  Vector2 vector = {50, 50};
-  float radius = 20;
+  Vector2 vector = {300, 300};
+  float radius = 100;
 
-  CalculateDensity(vector, ball, radius);
+  float density = CalculateDensity(vector, ball, radius);
+
+  std::cout << density << std::endl;
 
   while (!WindowShouldClose()) {
 

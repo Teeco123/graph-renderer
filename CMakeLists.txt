@@ -13,8 +13,11 @@ include_directories(external/raygui/src)
 include_directories(external/raygui/styles/cyber)
 include_directories(src)
 
+# Automatically add all .cpp files in the src directory
+file(GLOB SOURCES src/*.cpp)
+
 # Add source files
-add_executable(GraphRenderer src/main.cpp)
+add_executable(GraphRenderer ${SOURCES})
 
 # Link raylib and raygui to the project
 target_link_libraries(GraphRenderer raylib)

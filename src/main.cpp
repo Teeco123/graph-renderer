@@ -11,17 +11,8 @@ struct Ball {
   float normalForce;
 };
 
-struct Box {
-  int row, col;
-  int x, y;
-  int size;
-  Color color;
-  int density;
-};
-
 int main() {
   const int screenSize = 800;
-  const int boxSegments = 50;
   const float gravity = 9.81 * 5;
   const int balls = 208;
 
@@ -42,58 +33,18 @@ int main() {
     }
   }
 
-  Box grid[boxSegments][boxSegments];
-  int boxSize = screenSize / boxSegments;
-  for (int row = 0; row < boxSegments; row++) {
-    for (int col = 0; col < boxSegments; col++) {
-      for (int i = 0; i < boxSegments; i++) {
-        grid[row][col].row = row;
-        grid[row][col].col = col;
-        grid[row][col].x = col * boxSize;
-        grid[row][col].y = row * boxSize;
-        grid[row][col].size = boxSize;
-        grid[row][col].color = RED;
-        grid[row][col].density = 0;
-      }
-    }
-  }
-
   SetConfigFlags(FLAG_WINDOW_RESIZABLE);
   InitWindow(screenSize, screenSize, "Graph Renderer");
   SetTargetFPS(120);
   GuiLoadStyleCyber();
 
   while (!WindowShouldClose()) {
-    float deltaTime = GetFrameTime();
 
     BeginDrawing();
     ClearBackground(GRAY);
 
-    for (int row = 0; row < boxSegments; row++) {
-      for (int col = 0; col < boxSegments; col++) {
-        Box b = grid[row][col];
-
-        DrawRectangle(b.x, b.y, b.size, b.size, b.color);
-        DrawRectangleLines(b.x, b.y, b.size, b.size, BLACK);
-      }
-    }
-
     for (int i = 0; i < balls; i++) {
       DrawCircleV(ball[i].position, 5, BLUE);
-    }
-
-    for (int i = 0; i < balls; i++) {
-      for (int row = 0; row < boxSegments; row++) {
-        for (int col = 0; col < boxSegments; col++) {
-          Box b = grid[row][col];
-          Rectangle box = {(float)b.x, (float)b.y, (float)b.size,
-                           (float)b.size};
-
-          if (CheckCollisionPointRec(ball[i].position, box)) {
-            grid[row][col].color = PINK;
-          }
-        }
-      }
     }
 
     EndDrawing();

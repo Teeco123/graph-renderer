@@ -1,5 +1,5 @@
 #include "raylib.h"
 
-struct Ball {
+struct Point {
   Vector2 position;
 };

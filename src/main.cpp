@@ -14,20 +14,18 @@ int main() {
   SetTargetFPS(120);
   GuiLoadStyleCyber();
 
-  const int ballsCount = 208;
-  Ball ball[ballsCount];
-
-  InitRandomPoints(ball, ballsCount);
+  const int pointsCount = 208;
+  Point point[pointsCount];
+  InitRandomPoints(point, pointsCount);
 
   while (!WindowShouldClose()) {
-
     BeginDrawing();
     ClearBackground(GRAY);
 
     DrawRectangleLines(0, 0, 800, 800, BLACK);
 
-    for (int i = 0; i < ballsCount; i++) {
-      DrawCircleV(ball[i].position, 5, BLUE);
+    for (int i = 0; i < pointsCount; i++) {
+      DrawCircleV(point[i].position, 5, BLUE);
     }
 
     EndDrawing();

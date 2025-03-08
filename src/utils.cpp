@@ -14,12 +14,12 @@ float Distance2Vectors(Vector2 A, Vector2 B) {
   return std::sqrt(std::pow(B.x - A.x, 2) + std::pow(B.y - A.y, 2));
 }
 
-float CalculateDensity(Vector2 samplePoint, Ball ball[], float radius) {
+float CalculateDensity(Vector2 samplePoint, Point point[], float radius) {
   float density = 0;
   const float mass = 1;
 
   for (int i = 0; i < 200; i++) {
-    float dst = Distance2Vectors(samplePoint, ball[i].position);
+    float dst = Distance2Vectors(samplePoint, point[i].position);
     float influence = SmoothingKernel(radius, dst);
     density += mass * influence;
   }
@@ -27,10 +27,10 @@ float CalculateDensity(Vector2 samplePoint, Ball ball[], float radius) {
   return density;
 }
 
-void InitRandomPoints(Ball ball[], int count) {
+void InitRandomPoints(Point point[], int count) {
   for (int i = 0; i < count; i++) {
     float randColumn = rand() % 800;
     float randRow = rand() % 800;
-    ball[i].position = {randRow, randColumn};
+    point[i].position = {randRow, randColumn};
   }
 }

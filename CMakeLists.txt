@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.10)
-project(GraphRenderer)
+project(WaterSimulation)
 
 # Set C++ standard
 set(CMAKE_CXX_STANDARD 11)
@@ -17,12 +17,12 @@ include_directories(src)
 file(GLOB SOURCES src/*.cpp)
 
 # Add source files
-add_executable(GraphRenderer ${SOURCES})
+add_executable(WaterSimulation ${SOURCES})
 
 # Link raylib and raygui to the project
-target_link_libraries(GraphRenderer raylib)
+target_link_libraries(WaterSimulation raylib)
 
 # Set the output directory for the executable to the "bin" folder
-set_target_properties(GraphRenderer PROPERTIES
+set_target_properties(WaterSimulation PROPERTIES
     RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin
 )

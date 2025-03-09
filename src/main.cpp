@@ -22,7 +22,7 @@ int main() {
 
   //------------------------------------------------------------------------------------
   // Raylib settings
-  InitWindow(screenWidth, screenHeight, "Graph Renderer");
+  InitWindow(screenWidth, screenHeight, "Water Simulation");
   SetTargetFPS(120);
   GuiLoadStyleCyber();
 
